@@ -1,0 +1,38 @@
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return f"{self.name} говорит: Привет!"
+
+class Animal:
+    def __init__(self, species):
+        self.species = species
+
+    def sound(self):
+        return f"Животное издает звук своего вида: {self.species}"
+
+class House:
+    def __init__(self, address):
+        self.address = address
+        self.residents = []
+
+    def add_resident(self, person):
+        self.residents.append(person)
+        return f"{person.name} теперь живет по адресу: {self.address}"
+
+    def show_residents(self):
+        return [resident.name for resident in self.residents]
+
+
+# Пример использования
+person1 = Person("Анна")
+person2 = Person("Иван")
+cat = Animal("Кот")
+
+house = House("Улица Пушкина, дом Колотушкина")
+
+print(house.add_resident(person1))  # Вывод: Анна теперь живет по адресу: Улица Пушкина, дом Колотушкина
+print(house.add_resident(person2))  # Вывод: Иван теперь живет по адресу: Улица Пушкина, дом Колотушкина
+
+print(house.show_residents())  # Вывод: ['Анна', 'Иван']
